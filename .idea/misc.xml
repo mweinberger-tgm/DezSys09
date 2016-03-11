@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="GradleLocalSettings">
-    <option name="modificationStamps">
-      <map>
-        <entry key="$USER_HOME$/Desktop/gs-rest-service-master/gs-rest-service-master/complete" value="1450420832000" />
-        <entry key="$PROJECT_DIR$/../DezSys07/gs-accessing-mongodb-data-rest-master/gs-accessing-mongodb-data-rest-master/complete" value="1447661414000" />
-        <entry key="$PROJECT_DIR$/../DezSys07/gs-rest-service-master/complete" value="1448520318000" />
-        <entry key="$PROJECT_DIR$/../DezSys07/prototype" value="1450420780000" />
-      </map>
-    </option>
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
