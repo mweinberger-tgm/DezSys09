@@ -4,19 +4,19 @@
 % DEFINITIONS
 % Change those informations
 % If you need umlauts you have to escape them, e.g. for an ü you have to write \"u
-\gdef\mytitle{(Labor-)Protokoll}
-\gdef\mythema{CORBA Overview}
+\gdef\mytitle{Laborprotokoll}
+\gdef\mythema{DezSys09 - Web Services in Java}
 
-\gdef\mysubject{Fach}
-\gdef\mycourse{5BHIT 2015/16, Gruppe Z}
+\gdef\mysubject{Systemtechnik}
+\gdef\mycourse{5BHIT 2015/16, Gruppe B}
 \gdef\myauthor{Michael Weinberger}
 
-\gdef\myversion{0.1}
-\gdef\mybegin{\today}
+\gdef\myversion{1.0}
+\gdef\mybegin{11. M\"arz 2016}
 \gdef\myfinish{\today}
 
 \gdef\mygrade{Note:}
-\gdef\myteacher{Betreuer: Th.Micheler}
+\gdef\myteacher{Betreuer: Borko}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -61,12 +61,39 @@
 \pagestyle{fancy}
 
 %\vspace{-0.5cm}
-asdf
+\section{Einführung}
+Diese Übung zeigt die Anwendung von mobilen Diensten in Java.
 
-\clearpage
+\subsection{Ziele}
+Das Ziel dieser Übung ist eine Webanbindung zur Benutzeranmeldung in Java umzusetzen. Dabei soll sich ein Benutzer registrieren und am System anmelden können. \\
+Die Kommunikation zwischen Client und Service soll mit Hilfe von JAX-RS (Gruppe 1+2) umgesetzt werden.
+
+\subsection{Voraussetzungen}
+\begin{itemize}
+	\item Grundlagen Java und Java EE
+	\item Verständnis über relationale Datenbanken und dessen Anbindung mittels JDBC oder ORM-Frameworks
+	\item Verständnis von Restful Webservices
+\end{itemize}
+
+\subsection{Aufgabenstellung}
+Es ist ein Webservice mit Java zu implementieren, welches eine einfache Benutzerverwaltung implementiert. Dabei soll die Webapplikation mit den Endpunkten /register und /login erreichbar sein. \\ \\
+\textit{Registrierung} \\
+Diese soll mit einem Namen, einer eMail-Adresse als BenutzerID und einem Passwort erfolgen. Dabei soll noch auf keine besonderen Sicherheitsmerkmale Wert gelegt werden. Bei einer erfolgreichen Registrierung (alle Elemente entsprechend eingegeben) wird der Benutzer in eine Datebanktabelle abgelegt. \\ \\
+\textit{Login} \\
+Der Benutzer soll sich mit seiner ID und seinem Passwort entsprechend authentifizieren können. Bei einem erfolgreichen Login soll eine einfache Willkommensnachricht angezeigt werden. \\ \\
+Die erfolgreiche Implementierung soll mit entsprechenden Testfällen (Acceptance-Tests bez. aller funktionaler Anforderungen mittels JUnit) dokumentiert werden. Es muss noch keine grafische Oberfläche implementiert werden! Verwenden Sie auf jeden Fall ein gängiges Build-Management-Tool (z.B. Maven). Dabei ist zu beachten, dass ein einfaches Deployment möglich ist (auch Datenbank mit z.B. file-based DBMS). \\ \\
+\cite{eins} \cite{zwei} \cite{drei} \cite{vier}
+
+\newpage
+
+\section{Durchführung}
+
+Zu allererst wurde ein Gratis-Account bei Heroku.com erstellt, wie in den Quellen erwähnt.
+
+\newpage
 
 \bibliographystyle{unsrt}
-\bibliography{references}
+\bibliography{DezSys09_Weinb_5BHIT}
 \lstlistoflistings
 \listoffigures
 
