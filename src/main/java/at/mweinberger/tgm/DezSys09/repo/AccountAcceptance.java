@@ -3,37 +3,29 @@ package at.mweinberger.tgm.DezSys09.repo;
 import at.mweinberger.tgm.DezSys09.data.Account;
 
 /**
- * Diese Klasse ist für die Ueberpruefung der Benutzerdaten da.
- *
- * @author mweinberger
+ * Validierung der Benutzerdaten.
  */
 public class AccountAcceptance {
 
     /**
-     * Ueberprueft ob alle Daten von einem Account ausgefuellt wurden.
-     *
-     * @param account Account
-     * @return boolean
+     * Ueberprueft ob alle erforderlichen Parameter ausgefuellt wurden.
      */
     public static boolean hasFilledOut(Account account) {
-        // Wenn alle Felder ausgefuellt sind return true
+        // Sind alle erforderlichen Felder ausgefuellt?
         if (account != null && account.getEmail() != null && account.getUsername() != null && account.getPassword() != null) {
-            return true;
+            return true; // -> JA
         }
-        return false;
+        return false; // -> NEIN, erneut eingeben
     }
 
     /**
-     * Ueberprueft ob der gegebenen Account eine passende Email und ein passendes Passwort hat.
-     *
-     * @param account Account
-     * @return boolean
+     * Ueberprueft ob der mitgelieferte Account eine passende Email-Adresse und ein passendes Passwort in der Datenbank hat.
      */
     public static boolean hasLoginData(Account account) {
-        // Wenn alle Felder vorhanden sind return true
+        // Ist der Account valide?
         if (account != null && account.getEmail() != null && account.getPassword() != null) {
-            return true;
+            return true; // -> JA
         }
-        return false;
+        return false; // -> NEIN, Fehlermeldung
     }
 }

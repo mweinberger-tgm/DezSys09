@@ -15,43 +15,35 @@ import javax.ws.rs.core.Response;
 
 /**
  * Diese Klasse ist für die Registrierung der Benutzer zustaendig
- *
- * @author mweinberger
  */
 @Named
-// URL PATH
 @Path("/register")
 @Produces({MediaType.APPLICATION_JSON})
 public class Registrieren {
 
     @Inject
     private AccountRepository repository;
-
     /**
-     * Erstellt den Account fuer den Benutzer soweit dieser noch nicht existiert.
-     *
-     * @param account Account
-     * @return Response
+     * Der Benutzer wird angelegt, wenn er noch nicht vorhanden ist.
      */
     @POST
     public Response register(Account account) {
-        // Ueberprueft ob die angegeben Daten fuer eine Anmeldung passen.
+        // Stimmen die Parameter?
         if (AccountAcceptance.hasFilledOut(account)) {
-            // Ueberprueft ob der Benutzer schon existiert anhand der bereits gespeicherten Email Daten
+            // Existiert der Benutzer bereits (Merkmal Email)?
             if (this.repository.findByEmail(account.getEmail()) == null) {
                 Account newAccount = new Account(account.getEmail(), account.getUsername(), account.getPassword());
-                this.repository.save(newAccount);
+                this.repository.save(newAccount); // NEIN -> Benutzer wird erstellt
                 int status = Response.Status.CREATED.getStatusCode();
                 return Response.status(status).entity(new Message(status,
-                        "Der Account wurde erfolgreich erstellt. " +
-                                "Benutzername: " + newAccount.getUsername() + " Email: " + newAccount.getEmail())).build();
+                        "Der Account '" +newAccount.getUsername() +"' mit der Email-Adresse '" +newAccount.getEmail() +"' wurde erfolgreich erstellt.")).build();
             } else {
-                int status = Response.Status.FORBIDDEN.getStatusCode();
-                return Response.status(status).entity(new Message(status, "UPS dich gibt es ja schon!")).build();
+                int status = Response.Status.FORBIDDEN.getStatusCode(); // JA -> Benutzer wird nicht erstellt, Fehlermeldung
+                return Response.status(status).entity(new Message(status, "Benutzer bereits vorhanden.")).build();
             }
         } else {
-            int status = Response.Status.BAD_REQUEST.getStatusCode();
-            return Response.status(status).entity(new Message(status, "Du musst ein bisschen mehr von dir preisgeben boy")).build();
+            int status = Response.Status.BAD_REQUEST.getStatusCode(); // NEIN -> Erneut eingeben lassen
+            return Response.status(status).entity(new Message(status, "Zu wenig erforderliche Felder angegeben.")).build();
         }
     }
 }

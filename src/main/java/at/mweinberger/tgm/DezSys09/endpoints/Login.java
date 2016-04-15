@@ -15,42 +15,34 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 /**
- *  Diese Klasse ist für das Einloggen der Benutzer zustaendig.
- *
- * @author mweinberger
+ *  Diese Klasse ist zustaendig fuer den Login.
  */
 @Named
-// URL PATH
 @Path("/login")
 @Produces({MediaType.APPLICATION_JSON})
 public class Login {
-
     @Autowired
     private AccountRepository repository;
-
     /**
-     * Meldet den Benutzer an. Außer es gibt ihn noch nicht oder die Eingabe hat nicht gestimmt.
-     *
-     * @param loginAccount Account
-     * @return Response
+     * Meldet den Benutzer an, insofern die Parameter richtig sind, und er in der Datenbank vorhanden ist.
      */
     @POST
     public Response login(Account loginAccount) {
-        // Required infos given?
+        // Sind die notwenigen Parameter da?
         if (AccountAcceptance.hasLoginData(loginAccount)) {
             Account account = this.repository.findByEmail(loginAccount.getEmail());
 
-            // Does the account exist?
+            // Wurde der Account gefunden?
             if (account != null) {
-                int status = Status.OK.getStatusCode();
-                return Response.status(status).entity(new Message(status, account.getUsername() + " du bist nun angemeldet")).build();
+                int status = Status.OK.getStatusCode(); // JA -> Angemeldet
+                return Response.status(status).entity(new Message(status, "Benutzer '" +account.getUsername() + "' wurde erfolgreich angemeldet.")).build();
             } else {
-                int status = Status.FORBIDDEN.getStatusCode();
-                return Response.status(status).entity(new Message(status, "Diese Kombi gibts nicht!")).build();
+                int status = Status.FORBIDDEN.getStatusCode(); // NEIN -> Forbidden, keinen User gefunden
+                return Response.status(status).entity(new Message(status, "Anmeldung fehlgeschlagen. User nicht vorhanden.")).build();
             }
         } else {
-            int status = Status.BAD_REQUEST.getStatusCode();
-            return Response.status(status).entity(new Message(status, "Ein paar Zusatzinformationen fehlen")).build();
+            int status = Status.BAD_REQUEST.getStatusCode(); // NEIN -> Erneut eingeben lassen
+            return Response.status(status).entity(new Message(status, "Anmeldeinformationen unvollstaendig.")).build();
         }
     }
 }

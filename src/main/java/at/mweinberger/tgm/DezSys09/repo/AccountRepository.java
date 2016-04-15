@@ -6,24 +6,17 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 /**
- * Repository fuer die Persistierung und verwaltung der Accounts
- *
- * @author mweinberger
+ * Persistierung und Verwaltung der Accounts
  */
 public interface AccountRepository extends CrudRepository<Account, String> {
 
     /**
-     * Liefert, falls vorhanden, den passenden Account zur angegeben Email
-     *
-     * @param email String
-     * @return Account
+     * Liefert den der Email zugehörigen Account, wenn in Datenbank vorhanden.
      */
     Account findByEmail(String email);
 
     /**
-     * Liefert einer Liste aller Accounts die in dieser Datenbank persisitiert wurden
-     *
-     * @return List
+     * Liefert einer Liste aller Accounts, die in der Datenbank abgelegt wurden
      */
     List<Account> findAll();
 }

@@ -9,10 +9,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import javax.inject.Named;
 
 /**
- * Hier werden die Endpunkte definiert
- *
- * @author Stefan Geyer
- * @version 20160218.1
+ * Definieren der RESTful Endpoints.
  */
 @Named
 public class Config extends ResourceConfig {

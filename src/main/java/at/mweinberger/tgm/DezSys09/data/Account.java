@@ -8,48 +8,35 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
- * Die Klasse die fuer die Account Objekte zustaendig ist
- *
- * @author mweinberger
+ * Die Modelklasse fuer die REST-API.
  */
 @Entity
 public class Account implements Serializable {
-
     @Id
-    @Size(max = 50)
+    @Size(max = 50) // 50 Zeichen = ausreichend
     @NotEmpty
     private String email;
-
-    @Size(max = 50)
+    @Size(max = 50) // 50 Zeichen = ausreichend
     private String username;
-
     private String password;
+    public Account() { /* ... */ }
 
-    public Account(){
-
+    public String getEmail() {
+        return email;
+    }
+    public String getUsername() {
+        return username;
+    }
+    public String getPassword() {
+        return password;
     }
 
     /**
-     * Konstruktor
-     * @param email E-Mail
-     * @param username Benutzername
-     * @param password Passwort
+     * Aufbau eines Account-Objekts.
      */
     public Account(String email, String username, String password) {
         this.email = email;
         this.username = username;
         this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
     }
 }

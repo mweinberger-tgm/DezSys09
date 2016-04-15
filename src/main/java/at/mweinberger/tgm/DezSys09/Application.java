@@ -4,9 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Ready Steady GO!
- *
- * @author mweinberger
+ * Ausfuehren der Applikation mit dem Spring-Framework.
  */
 @SpringBootApplication
 public class Application {
