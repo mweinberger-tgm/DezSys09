@@ -81,22 +81,67 @@ Es ist ein Webservice mit Java zu implementieren, welches eine einfache Benutzer
 Diese soll mit einem Namen, einer eMail-Adresse als BenutzerID und einem Passwort erfolgen. Dabei soll noch auf keine besonderen Sicherheitsmerkmale Wert gelegt werden. Bei einer erfolgreichen Registrierung (alle Elemente entsprechend eingegeben) wird der Benutzer in eine Datebanktabelle abgelegt. \\ \\
 \textit{Login} \\
 Der Benutzer soll sich mit seiner ID und seinem Passwort entsprechend authentifizieren können. Bei einem erfolgreichen Login soll eine einfache Willkommensnachricht angezeigt werden. \\ \\
-Die erfolgreiche Implementierung soll mit entsprechenden Testfällen (Acceptance-Tests bez. aller funktionaler Anforderungen mittels JUnit) dokumentiert werden. Es muss noch keine grafische Oberfläche implementiert werden! Verwenden Sie auf jeden Fall ein gängiges Build-Management-Tool (z.B. Maven). Dabei ist zu beachten, dass ein einfaches Deployment möglich ist (auch Datenbank mit z.B. file-based DBMS). \\ \\
-\cite{eins} \cite{zwei} \cite{drei} \cite{vier}
+Die erfolgreiche Implementierung soll mit entsprechenden Testfällen (Acceptance-Tests bez. aller funktionaler Anforderungen mittels JUnit) dokumentiert werden. Es muss noch keine grafische Oberfläche implementiert werden! Verwenden Sie auf jeden Fall ein gängiges Build-Management-Tool (z.B. Maven). Dabei ist zu beachten, dass ein einfaches Deployment möglich ist (auch Datenbank mit z.B. file-based DBMS).
+\cite{eins, zwei, drei, vier}
 
 \newpage
 
 \section{Durchführung}
 
-Zu allererst wurde ein Gratis-Account bei Heroku.com erstellt, wie in den Quellen erwähnt. Im Anschluss wurde probiert ein Tutorial zum Laufen zu bringen.
+Link zum Repo \cite{repo} \newline
+Zur Umsetzung wurde das Spring-Framework verwendet, da es im Vergleich einfach zu verwenden und aufzusetzen ist, und einen integrierten Applikationsserver bietet. Die Verwendung von JAX-RS wurde in dieser Übung vorgeschrieben. Auf einen Hinweis durch den Professor wurde keine überbordene relationale Datenbank verwendet, sondern die dateibasierte und gut unterstützte H2-Datenbank. Als Buildmanagement-Tool wurde Maven verwendet. Es wurde eine Vielzahl an Quellen herangenommen, wie es empfohlen wurde. Ein in den Quellen verlinktes Tutorial ('Bootiful' Java EE Support in Spring Boot 1.2) wurde übernommen und an unsere Bedürfnisse angepasst. Ebenso wurde als Einarbeitung bestehender Code hergenommen und analysiert, um schnell einen besseren Einblick zu bekommen. Wichtige, noch nicht vorhandene Teile waren etwa die RESTful Endpoints für Login und Register, auch die Datenbankanbindung musste angepasst werden. \cite{booti, spring, jaxrs, maven, hzwei, plugin, repoeins, repozwei}
 
-Link zum Repo \cite{repo}
+\section{Akzeptanzkriterien}
+\subsection{Registrierung}
+Die Funktionalitätsüberprüfung nach den vorgeschriebenen Anforderungen wurde mithilfe des Firefox-Plugins 'HttpRequester' durchgeführt. \cite{plugin}
+\subsubsection{Erfolgreiche Registrierung}
+\begin{figure}[h]
+	\includegraphics[width=1\textwidth]{images/reg_erf}
+	\caption{Wenn alle Parameter gegeben sind, wird der Account erstellt.}
+\end{figure} 
+\clearpage
+
+\subsubsection{Fehlende Parameter}
+\begin{figure}[h]
+	\includegraphics[width=1\textwidth]{images/reg_less}
+	\caption{Wenn ein oder mehrere der erforderlichen Parameter fehlen, wird der Account nicht erstellt, und der Benutzer wird informiert.}
+\end{figure}
+
+\subsubsection{Bereits existenter Benutzer}
+\begin{figure}[h]
+	\includegraphics[width=1\textwidth]{images/reg_vorh}
+	\caption{Ist der Benutzer bereits in der Datenbank vorhanden wird kein Account angelegt, und der Benutzer wird informiert.}
+\end{figure}
+\clearpage
+
+\subsection{Login}
+\subsubsection{Erfolgreicher Login}
+\begin{figure}[h]
+	\includegraphics[width=1\textwidth]{images/login_erf}
+	\caption{Wenn alle Parameter gegeben sind und der User in der Datenbank gefunden wird, ist der Benutzer erfolgreich angemeldet.}
+\end{figure}
+
+\subsubsection{Fehlende Parameter}
+\begin{figure}[h]
+	\includegraphics[width=1\textwidth]{images/login_unv}
+	\caption{Wenn nicht alle Parameter gegeben sind, wird der Benutzer darauf hingewiesen.}
+\end{figure}
+\clearpage
+
+\subsubsection{Benutzer nicht vorhanden}
+\begin{figure}[h]
+	\includegraphics[width=1\textwidth]{images/login_fehl}
+	\caption{Wenn der User nicht in der Datenbank gefunden wird, erhält der Benutzer die dazugehörige Fehlermeldung.}
+\end{figure}
+
+\subsection{Fazit}
+Es gab anfängliche Probleme bei der Bereitstellung der Umgebung, aber ein Blick auf bestehende Lösungen konnte hier helfen. Fehlermeldungen zum Deployment konnten mit 5 Minuten Internetrecherche geklärt werden. Der Gesamtzeitaufwand dieser Aufgabe beträgt etwas mehr als 6 Stunden.
 
 \newpage
 
 \bibliographystyle{unsrt}
 \bibliography{DezSys09_Weinb_5BHIT}
-\lstlistoflistings
+\clearpage
 \listoffigures
 
 \end{document}
