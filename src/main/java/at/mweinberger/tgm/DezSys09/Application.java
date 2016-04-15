@@ -1,4 +1,4 @@
-package at.mweinberger.tgm.dezsys09;
+package at.mweinberger.tgm.DezSys09;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

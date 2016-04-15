@@ -1,6 +1,6 @@
-package at.mweinberger.tgm.dezsys09.repo;
+package at.mweinberger.tgm.DezSys09.repo;
 
-import at.mweinberger.tgm.dezsys09.data.Account;
+import at.mweinberger.tgm.DezSys09.data.Account;
 
 /**
  * Diese Klasse ist für die Ueberpruefung der Benutzerdaten da.

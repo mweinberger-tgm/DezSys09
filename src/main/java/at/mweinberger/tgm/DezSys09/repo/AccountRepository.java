@@ -1,6 +1,6 @@
-package at.mweinberger.tgm.dezsys09.repo;
+package at.mweinberger.tgm.DezSys09.repo;
 
-import at.mweinberger.tgm.dezsys09.data.Account;
+import at.mweinberger.tgm.DezSys09.data.Account;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

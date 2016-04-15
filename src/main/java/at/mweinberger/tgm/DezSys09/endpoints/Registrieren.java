@@ -1,9 +1,9 @@
-package at.mweinberger.tgm.dezsys09.endpoints;
+package at.mweinberger.tgm.DezSys09.endpoints;
 
-import at.mweinberger.tgm.dezsys09.repo.AccountRepository;
-import at.mweinberger.tgm.dezsys09.data.Account;
-import at.mweinberger.tgm.dezsys09.data.Message;
-import at.mweinberger.tgm.dezsys09.repo.AccountAcceptance;
+import at.mweinberger.tgm.DezSys09.repo.AccountRepository;
+import at.mweinberger.tgm.DezSys09.data.Account;
+import at.mweinberger.tgm.DezSys09.data.Message;
+import at.mweinberger.tgm.DezSys09.repo.AccountAcceptance;
 
 import javax.inject.Inject;
 import javax.inject.Named;

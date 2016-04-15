@@ -1,8 +1,8 @@
-package at.mweinberger.tgm.dezsys09;
+package at.mweinberger.tgm.DezSys09;
 
-import at.mweinberger.tgm.dezsys09.endpoints.AccountEndpoint;
-import at.mweinberger.tgm.dezsys09.endpoints.Login;
-import at.mweinberger.tgm.dezsys09.endpoints.Registrieren;
+import at.mweinberger.tgm.DezSys09.endpoints.AccountEndpoint;
+import at.mweinberger.tgm.DezSys09.endpoints.Login;
+import at.mweinberger.tgm.DezSys09.endpoints.Registrieren;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 

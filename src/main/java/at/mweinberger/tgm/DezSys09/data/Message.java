@@ -1,4 +1,4 @@
-package at.mweinberger.tgm.dezsys09.data;
+package at.mweinberger.tgm.DezSys09.data;
 
 /**
  * Diese Klasse ist fuer die Benachrichtigung von REST Anfragen zustaendig
